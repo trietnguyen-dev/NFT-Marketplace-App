@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import LogoHeader from '../components/LogoHeader.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
+import FooterBar from '../components/FooterBar.js';
 const CartScreen = () => {
     const navigation = useNavigation();
 
@@ -99,15 +100,9 @@ const CartScreen = () => {
                     </ScrollView>
                 </View>
                 <View style={{ flex: 0.12 }}>
-                    <View style={styles.footerBarSearch}>
-                        <TouchableOpacity >
-
-                            <Feather name="home" size={24} color="black" />
-                        </TouchableOpacity>
-                        <Feather name="grid" size={24} color="black" />
-                        <Feather name="shopping-cart" size={24} color="black" />
-                        <Feather name="user" size={24} color="black" />
-                    </View>
+                    {/* <View style={styles.footerBarSearch}>
+                        <FooterBar />
+                    </View> */}
                 </View>
             </SafeAreaView >
         </View >

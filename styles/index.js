@@ -1,6 +1,26 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+function getWidth() {
+    let width = Dimensions.get('window').width;
+    width = width - 260;
+    return width / 5;
+}
 
 const styles = StyleSheet.create({
+
+    //Tabbar
+    tabOffset: {
+        width: getWidth(),
+        height: 2,
+        backgroundColor: "tomato",
+        position: "absolute",
+        bottom: 20,
+        marginHorizontal: 40,
+        left: 28,
+        borderRadius: 50,
+
+    },
+
 
     //phan cart
     cartItem: {
@@ -98,7 +118,6 @@ const styles = StyleSheet.create({
     // phần detail
     logoDetail: {
         flex: 0.07,
-        backgroundColor: "white",
         flexDirection: "row",
         justifyContent: "space-between",
     },
@@ -243,19 +262,14 @@ const styles = StyleSheet.create({
     // phần Home
     footerBar: {
         flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        alignItems: "center",
         marginHorizontal: 40,
         position: "absolute",
-        width: 330,
         height: 64,
         borderRadius: 26,
         borderWidth: 2,
         borderColor: "#D8D8D8",
         backgroundColor: "#FFF",
-        left: 0,
-        right: 0,
+
         bottom: 10,
     },
     itemContainer: {
@@ -268,7 +282,6 @@ const styles = StyleSheet.create({
     },
     item: {
         flex: 1,
-        borderColor: "black",
         borderWidth: 2,
         marginTop: 10,
         marginRight: 5,

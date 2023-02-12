@@ -8,6 +8,7 @@ import LogoHeader from '../components/LogoHeader.js';
 import NftComponents from '../components/NftComponents.js';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from "@expo/vector-icons";
+import FooterBar from '../components/FooterBar.js';
 
 const SearchScreen = () => {
 
@@ -53,15 +54,9 @@ const SearchScreen = () => {
                             <NftComponents />
                         </View >
 
-                        <View style={styles.footerBarSearch}>
-                            <TouchableOpacity >
+                        {/* <View style={styles.footerBarSearch} /> */}
 
-                                <Feather name="home" size={24} color="black" />
-                            </TouchableOpacity>
-                            <Feather name="grid" size={24} color="black" />
-                            <Feather name="shopping-cart" size={24} color="black" />
-                            <Feather name="user" size={24} color="black" />
-                        </View>
+
                     </View>
 
 

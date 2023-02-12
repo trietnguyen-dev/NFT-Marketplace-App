@@ -16,6 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "../styles/index.js";
 import LogoHeader from "../components/LogoHeader.js";
 import NftComponents from "../components/NftComponents.js";
+import FooterBar from "../components/FooterBar.js";
 
 
 const HomeScreen = () => {
@@ -40,13 +41,15 @@ const HomeScreen = () => {
                         <Text style={{ fontSize: 20, fontWeight: "bold" }}>Trending</Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             <View style={styles.containerMainImage}>
-                                <View style={styles.mainImage}>
-                                    <Image
-                                        style={styles.image}
-                                        source={require("../assets/nft1.png")}
-                                    />
-                                    <View style={styles.mainImage2}></View>
-                                </View>
+                                <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+                                    <View style={styles.mainImage}>
+                                        <Image
+                                            style={styles.image}
+                                            source={require("../assets/nft1.png")}
+                                        />
+                                        <View style={styles.mainImage2}></View>
+                                    </View>
+                                </TouchableOpacity >
                                 <View style={[styles.mainImage3]}>
                                     <View>
                                         <View style={styles.containerTextMainImage}>
@@ -142,7 +145,7 @@ const HomeScreen = () => {
                                                 },
                                             ]}
                                         >
-                                            <TouchableOpacity style={styles.bgPlaceBid}>
+                                            <TouchableOpacity style={styles.bgPlaceBid} onPress={() => navigation.navigate('Detail')}>
                                                 <View>
                                                     <LinearGradient
                                                         style={{
@@ -304,28 +307,22 @@ const HomeScreen = () => {
                                 <NftComponents />
                                 <NftComponents />
                                 <NftComponents />
-
                             </View >
                         </View>
 
 
                     </View>
-                    <View style={{ width: "100%", height: 80 }}>
-                    </View>
+                    <View style={{ width: "100%", height: 80 }} />
+
 
                 </SafeAreaView>
             </ScrollView>
 
 
-
+            {/* 
             <View style={styles.footerBar}>
-                <TouchableOpacity >
-                <Feather name="home" size={24} color="black" />
-                </TouchableOpacity>
-                <Feather name="grid" size={24} color="black" />
-                <Feather name="shopping-cart" size={24} color="black" />
-                <Feather name="user" size={24} color="black" />
-            </View>
+                <FooterBar />
+            </View> */}
         </View >
     );
 };

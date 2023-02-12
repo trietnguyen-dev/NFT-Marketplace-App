@@ -1,16 +1,21 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from '../styles';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const NftComponents = () => {
+    const navigation = useNavigation();
     return (
+
         <View style={styles.itemContainer}>
             <View style={styles.item}>
-                <Image
-                    source={require("../assets/avatar.png")}
-                    style={{ width: "100%", height: "100%" }}
-                />
+                <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+                    <Image
+                        source={require("../assets/avatar.png")}
+                        style={{ width: "100%", height: "100%" }}
+                    />
+                </TouchableOpacity>
             </View>
             <View
                 style={{
@@ -83,6 +88,7 @@ const NftComponents = () => {
             </View>
 
         </View>
+
     )
 }
 

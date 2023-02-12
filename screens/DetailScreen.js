@@ -23,7 +23,9 @@ const DetailScreen = () => {
 
                 <View style={styles.logoDetail}>
 
-                    <Feather name="arrow-left" size={24} color="black" />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Feather name="arrow-left" size={24} color="black" />
+                    </TouchableOpacity>
                     <Feather name="bell" size={24} color="black" />
                 </View>
                 {/* body */}
