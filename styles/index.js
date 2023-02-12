@@ -7,6 +7,53 @@ function getWidth() {
 }
 
 const styles = StyleSheet.create({
+    // modal notfication
+
+    bgNote: {
+        flex: 1,
+        width: 273,
+        height: 380,
+        backgroundColor: "#FFFFFF",
+        position: "absolute",
+        top: 40,
+        right: 20,
+        borderRadius: 20,
+    },
+    bgIconNote: {
+        width: 32,
+        height: 32,
+        backgroundColor: "#F1F1F1",
+        borderRadius: 20,
+        marginLeft: 20,
+        marginRight: 15,
+
+    },
+    itemNotice: {
+        flexDirection: "row",
+        alignItems: "center",
+        width: 231,
+        height: 60,
+        backgroundColor: "#FFFFFF",
+        marginHorizontal: 16,
+        marginTop: 13,
+        marginBottom: 2,
+        borderRadius: 20,
+        elevation: 5,
+        shadowColor: 'black',
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: { width: 0, height: 3 },
+        backgroundColor: 'white',
+
+    },
+    clearButton: {
+        width: 88,
+        height: 26,
+        backgroundColor: '#EEEEEE',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+    },
     // phần user
 
     headerUser: {
@@ -16,9 +63,11 @@ const styles = StyleSheet.create({
         flex: 0.4,
     },
     logoHeaderUser: {
+
         width: "100%",
         height: "60%",
         position: "absolute",
+
     },
     AvatarUser: {
         width: 142,

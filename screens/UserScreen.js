@@ -16,6 +16,7 @@ const UserScreen = () => {
             headerShown: false,
         });
     }, []);
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
             <View style={styles.headerUser}>
@@ -24,7 +25,7 @@ const UserScreen = () => {
                     source={require("../assets/logoUser.png")}
                 />
                 <View style={{ marginHorizontal: 20 }} >
-                    <LogoHeader />
+                    <LogoHeader color={"white"} />
                 </View>
                 <View style={styles.AvatarUser}>
                     <Image source={require("../assets/logoUser.png")} style={styles.imgAvatar} />
