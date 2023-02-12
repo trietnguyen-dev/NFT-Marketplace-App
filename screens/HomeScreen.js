@@ -9,14 +9,11 @@ import {
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { FontAwesome } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "../styles/index.js";
 import LogoHeader from "../components/LogoHeader.js";
 import NftComponents from "../components/NftComponents.js";
-import FooterBar from "../components/FooterBar.js";
 
 
 const HomeScreen = () => {

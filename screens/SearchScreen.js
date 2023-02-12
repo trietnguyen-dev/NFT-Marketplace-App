@@ -3,12 +3,9 @@ import React, { useLayoutEffect } from 'react'
 import styles from "../styles/index.js";
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FontAwesome } from "@expo/vector-icons";
 import LogoHeader from '../components/LogoHeader.js';
 import NftComponents from '../components/NftComponents.js';
 import { AntDesign } from '@expo/vector-icons';
-import { Feather } from "@expo/vector-icons";
-import FooterBar from '../components/FooterBar.js';
 
 const SearchScreen = () => {
 
@@ -54,7 +51,6 @@ const SearchScreen = () => {
                             <NftComponents />
                         </View >
 
-                        {/* <View style={styles.footerBarSearch} /> */}
 
 
                     </View>

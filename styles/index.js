@@ -7,7 +7,74 @@ function getWidth() {
 }
 
 const styles = StyleSheet.create({
+    // phần user
 
+    headerUser: {
+        flex: 0.6,
+    },
+    bodyUser: {
+        flex: 0.4,
+    },
+    logoHeaderUser: {
+        width: "100%",
+        height: "60%",
+        position: "absolute",
+    },
+    AvatarUser: {
+        width: 142,
+        height: 142,
+        borderRadius: 100,
+        borderWidth: 4,
+        borderColor: "white",
+        top: "30%",
+        left: "35%",
+    },
+    imgAvatar: {
+        width: "100%",
+        height: "100%",
+        borderRadius: 100,
+    },
+    bgTextUser: {
+        width: "100%",
+        height: "70%",
+        borderBottomEndRadius: 50,
+        borderBottomStartRadius: 50,
+        elevation: 5,
+        shadowColor: 'black',
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: { width: 0, height: 3 },
+        backgroundColor: 'white',
+
+    },
+
+    textUser: {
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        height: "25%"
+    },
+    centerUser: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    textRate: {
+        fontSize: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    textDes: {
+        fontSize: 15,
+        textAlign: "center",
+
+    },
+    textAction: {
+        fontSize: 14,
+        marginTop: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+        textAlign: "center",
+    },
     //Tabbar
     tabOffset: {
         width: getWidth(),

@@ -5,17 +5,14 @@ import styles from '../styles';
 import { useNavigation } from '@react-navigation/native';
 
 
-
-
-
 const LogoHeader = () => {
     const navigation = useNavigation();
 
     return (
 
         <View style={styles.containerLogo}>
-            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-                <View style={styles.rowLogo}>
+            <TouchableOpacity >
+                <View style={[styles.rowLogo]} >
                     <Image source={require("../assets/logo.png")} />
                     <Text style={styles.sizeText}>NFTMarket</Text>
                 </View>
