@@ -1,15 +1,29 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity, Animated, Dimensions } from 'react-native'
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles';
 import LogoHeader from '../components/LogoHeader';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Feather } from '@expo/vector-icons';
 import NftComponents from '../components/NftComponents';
 
 const UserScreen = () => {
     const navigation = useNavigation();
+    const [selectedTab, setSelectedTab] = useState(0);
+    const [tabOffsetValue] = useState(new Animated.Value(90));
+
+    function getWidth() {
+        let width = Dimensions.get('window').width;
+        width = width - 260;
+        return width / 5;
+    }
+
+    const handlePress = (value) => {
+        Animated.spring(tabOffsetValue, {
+            toValue: getWidth() * value,
+            useNativeDriver: true,
+        }).start();
+    };
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -19,6 +33,7 @@ const UserScreen = () => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+
             <View style={styles.headerUser}>
                 <Image
                     style={styles.logoHeaderUser}
@@ -75,21 +90,42 @@ const UserScreen = () => {
             </View>
             <View style={styles.bodyUser}>
                 <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
-                    <Text style={styles.textAction}>My Work</Text>
-                    <Text style={styles.textAction}>Liked</Text>
+                    <TouchableOpacity
+                        onPress={() => { setSelectedTab(0), handlePress(3) }}
+                    >
+                        <Text style={[styles.textAction]}>My Work</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
 
+                        onPress={() => { setSelectedTab(1), handlePress(8) }}
+                    >
+                        <Text style={[styles.textAction]}>Liked</Text>
+                    </TouchableOpacity>
                 </View>
+
+                <Animated.View style={[styles.animationAction, { transform: [{ translateX: tabOffsetValue }] }]}></Animated.View>
                 <ScrollView style={{ overflow: 'hidden' }} contentContainerStyle={{ flexGrow: 0 }}
                 >
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginHorizontal: 30 }}>
-                        <NftComponents />
-                        <NftComponents />
-                        <NftComponents />
 
+                        {selectedTab === 0 && (
+                            <>
+                                <NftComponents />
+                                <NftComponents />
+                                <NftComponents />
+                            </>
+                        )}
+                        {selectedTab === 1 && (
+                            <>
+                                <NftComponents />
+
+                            </>
+                        )}
                     </View>
                     <View style={{ width: "100%", height: 80 }} />
 
                 </ScrollView>
+
             </View>
         </SafeAreaView>
     )

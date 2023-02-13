@@ -56,11 +56,18 @@ const styles = StyleSheet.create({
     },
     // phần user
 
+    animationAction: {
+        backgroundColor: "red",
+        height: 3,
+        width: getWidth() * 3,
+        
+    },
     headerUser: {
         flex: 0.6,
     },
     bodyUser: {
         flex: 0.4,
+        top: 0,
     },
     logoHeaderUser: {
 
