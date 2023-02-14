@@ -1,6 +1,6 @@
 import { View, Text, Image, ScrollView, TouchableOpacity, Animated, Dimensions } from 'react-native'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles';
 import LogoHeader from '../components/LogoHeader';
@@ -8,15 +8,20 @@ import { LinearGradient } from 'expo-linear-gradient';
 import NftComponents from '../components/NftComponents';
 
 const UserScreen = () => {
+    const initialValue = 0
     const navigation = useNavigation();
-    const [selectedTab, setSelectedTab] = useState(0);
-    const [tabOffsetValue] = useState(new Animated.Value(90));
+    const [selectedTab, setSelectedTab] = useState(initialValue);
+    const [tabOffsetValue, setTabOffsetValue] = useState(new Animated.Value(90));
+
+
+
 
     function getWidth() {
         let width = Dimensions.get('window').width;
         width = width - 260;
         return width / 5;
     }
+
 
     const handlePress = (value) => {
         Animated.spring(tabOffsetValue, {

@@ -1,5 +1,5 @@
-import { Animated, Easing, View, Text, Image, TouchableOpacity } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
+import React, { useLayoutEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import styles from "../styles/index.js";
@@ -7,7 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from "@expo/vector-icons";
 
-const DetailScreen = () => {
+const DetailScreen = ({ route }) => {
+    const { img, name, number, img2, name2 } = route.params;
     const navigation = useNavigation();
 
     useLayoutEffect(() => {
@@ -31,7 +32,7 @@ const DetailScreen = () => {
                 {/* body */}
                 <View style={styles.body}>
                     <View style={styles.bgimgDetail}>
-                        <Image source={require("../assets/nft1.png")} style={styles.imgDetail} />
+                        <Image source={{ uri: number === 1 ? img : img2 }} style={styles.imgDetail} />
                         <View style={styles.tabDetail} />
                     </View>
                     <View style={styles.tabDetail2} >
@@ -43,7 +44,7 @@ const DetailScreen = () => {
                     </View>
                     <View style={{ marginBottom: 10 }}>
                         <Text style={{ fontSize: 30, fontWeight: "bold" }}>
-                            The Unknown
+                            {number === 1 ? name : name2}
                         </Text>
                         <LinearGradient
                             colors={["#320D6D", "#8A4CED"]}

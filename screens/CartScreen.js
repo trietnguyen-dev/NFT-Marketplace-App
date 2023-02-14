@@ -101,6 +101,7 @@ const CartScreen = () => {
                 <View style={{ flex: 0.12 }} />
             </SafeAreaView >
         </View >
+        
     )
 }
 

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         height: 3,
         width: getWidth() * 3,
-        
+
     },
     headerUser: {
         flex: 0.6,
@@ -392,7 +392,6 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: "#D8D8D8",
         backgroundColor: "#FFF",
-
         bottom: 10,
     },
     itemContainer: {
@@ -401,24 +400,20 @@ const styles = StyleSheet.create({
         width: 165,
         height: 160,
         borderRadius: 10,
-        borderColor: "red",
     },
     item: {
         flex: 1,
         borderWidth: 2,
+        borderColor: "#D8D8D8",
         marginTop: 10,
         marginRight: 5,
         marginLeft: 15,
         borderRadius: 10,
-        backgroundColor: "lightblue",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.19,
-        shadowRadius: 8.3,
-        elevation: 10,
+        elevation: 5,
+        shadowColor: 'black',
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: { width: 0, height: 3 },
         marginBottom: 10,
     },
     bgColor: { backgroundColor: "#F8F7FF", flex: 1 },

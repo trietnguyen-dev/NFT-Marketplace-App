@@ -12,9 +12,9 @@ import styles from '../styles';
 const Tab = createBottomTabNavigator();
 
 function getWidth() {
-  let width = Dimensions.get('window').width;
-  width = width - 260;
-  return width / 5;
+    let width = Dimensions.get('window').width;
+    width = width - 260;
+    return width / 5;
 }
 const BottomTab = () => {
     const tabOffsetValue = useRef(new Animated.Value(0)).current

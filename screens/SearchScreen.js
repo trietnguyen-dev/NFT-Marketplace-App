@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import styles from "../styles/index.js";
 import { useNavigation } from '@react-navigation/native';
