@@ -11,7 +11,7 @@ const UserScreen = () => {
     const initialValue = 0
     const navigation = useNavigation();
     const [selectedTab, setSelectedTab] = useState(initialValue);
-    const [tabOffsetValue, setTabOffsetValue] = useState(new Animated.Value(90));
+    const [tabOffsetValue] = useState(new Animated.Value(90));
 
 
 
@@ -115,14 +115,16 @@ const UserScreen = () => {
 
                         {selectedTab === 0 && (
                             <>
-                                <NftComponents />
-                                <NftComponents />
-                                <NftComponents />
+
+                                <NftComponents name2={"The Unknown"} number={3} />
+
                             </>
                         )}
                         {selectedTab === 1 && (
                             <>
-                                <NftComponents />
+                                <NftComponents name2={"The Unknown"} number={3} />
+                                <NftComponents name2={"The Unknown"} number={3} />
+
 
                             </>
                         )}

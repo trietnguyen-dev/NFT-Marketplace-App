@@ -4,18 +4,19 @@ import styles from '../styles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
-const NftComponents = ({ img2, name2 }) => {
+const NftComponents = ({ img2, name2, img3, name3, number  }) => {
     const navigation = useNavigation();
     return (
 
         <View style={styles.itemContainer}>
             <View style={styles.item}>
-                <TouchableOpacity onPress={() => navigation.navigate('Detail', { img2: img2, name2: name2, number: 2 })}>
+                <TouchableOpacity onPress={() => navigation.navigate('Detail', { img2: number == 2 ? img3 : img2, name2: number == 2 ? name3 : name2, number: 2, number3: 3 })}>
                     <Image
-                        source={{ uri: img2 }}
+                        source={number == 3 ? require("../assets/avatar.png") : { uri: number == 2 ? img3 : img2 }}
                         style={{ borderRadius: 10, width: "100%", height: "100%" }}
                     />
                 </TouchableOpacity>
+
             </View>
             <View
                 style={{
@@ -32,7 +33,7 @@ const NftComponents = ({ img2, name2 }) => {
                 }}
             >
                 <Text style={{ position: "absolute", top: 4, right: 12 }}>
-                    {name2}
+                    {number == 2 ? name3 : name2}
                 </Text>
                 <View
                     style={{

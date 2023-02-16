@@ -15,6 +15,7 @@ import styles from "../styles/index.js";
 import LogoHeader from "../components/LogoHeader.js";
 import NftComponents from "../components/NftComponents.js";
 import axios from "axios";
+import getAssets from "../apis/api.js";
 
 
 const HomeScreen = ({ image, name }) => {
@@ -25,58 +26,30 @@ const HomeScreen = ({ image, name }) => {
             headerShown: false,
         });
     }, []);
-    const [res, setRes] = useState([])
-    const [isLoading, setIsLoading] = useState(true);
     const [loaded, setLoaded] = useState(false);
+    const [res, setRes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: 'edd3a500-7d10-4519-bb14-81d6fdce1aaa'
-        }
-    };
-
-    const getAssets = async (index) => {
-        try {
-            const response = await axios.get("https://api.nftport.xyz/v0/solana/nfts/okay-bears-3fb117dd?page_number=1&page_size=50&include=metadata&refresh_metadata=false", options);
-            const response2 = await axios.get("https://api.nftport.xyz/v0/solana/accounts/collections/Gni7iXunhUnKgb3aewouPmkmBL6qZKD9avEfnncFjCwi?type=owns_collections_nfts&page_size=50", options);
-
-            let data = response.data
-            let data2 = response2.data
-
-            let img = data.nfts[index].metadata.image
-            let text = data.nfts[index].metadata.name
-
-            let img2 = data.nfts[index + 3].metadata.image
-            let text2 = data.nfts[index + 3].metadata.name
-
-            let nameActor = data2.collections[index].name.substring(0, 10);
-
-            console.log(nameActor)
-            setRes(prevRes => [...prevRes, { image: img, name: text, nameActor: nameActor, image2: img2, name2: text2 }]);
-        } catch (error) {
-            console.log(error);
-        }
-
-    };
 
     useEffect(() => {
         if (!loaded) {
             const fetchData = async () => {
                 for (let i = 0; i < 4; i++) {
-                    await getAssets(i)
+                    const data = await getAssets(i);
+                    if (data) {
+                        setRes(prevRes => [...prevRes, data]);
+                        console.log("Success");
+                    }
                 }
-                setIsLoading(false)
+                setIsLoading(false);
             }
             fetchData();
             setLoaded(true);
+
             return () => {
             }
         }
     }, [loaded]);
-
-
 
     return (
         <View style={styles.bgColor}>
@@ -93,7 +66,7 @@ const HomeScreen = ({ image, name }) => {
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             {!isLoading && res.map((asset, index) => (
                                 <View key={index} style={styles.containerMainImage}>
-                                    <TouchableOpacity onPress={() => navigation.navigate('Detail', { img: asset.image, name: asset.name,number:1})}>
+                                    <TouchableOpacity onPress={() => navigation.navigate('Detail', { img: asset.image, name: asset.name, number: 1 })}>
                                         <View style={styles.mainImage}>
                                             <Image
                                                 style={styles.image}

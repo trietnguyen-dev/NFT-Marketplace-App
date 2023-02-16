@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from "@expo/vector-icons";
 
 const DetailScreen = ({ route }) => {
-    const { img, name, number, img2, name2 } = route.params;
+    const { img, name, number, img2, name2, number3 } = route.params;
     const navigation = useNavigation();
 
     useLayoutEffect(() => {
@@ -32,7 +32,7 @@ const DetailScreen = ({ route }) => {
                 {/* body */}
                 <View style={styles.body}>
                     <View style={styles.bgimgDetail}>
-                        <Image source={{ uri: number === 1 ? img : img2 }} style={styles.imgDetail} />
+                        <Image source={number3 == 3 ? require("../assets/avatar.png") : { uri: number === 1 ? img : img2 }} style={styles.imgDetail} />
                         <View style={styles.tabDetail} />
                     </View>
                     <View style={styles.tabDetail2} >
